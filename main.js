@@ -73,16 +73,23 @@ const createMainWindow = () => {
     })
     win.loadURL('file://' + path.join(__dirname, 'index.html')).then();
     win.on('resize', () => {
-        const { height } = win.getBounds();
-        let eq_height = height - 45;
-        let fs_height = height - 25;
-        const isFullScreen = win.isFullScreen();
-        console.debug(eq_height);
-        console.info(isFullScreen);
-        win.webContents.send('window-resize', height, eq_height,fs_height,isFullScreen);
+        SendWindowsResize(win);
     });
-
+        win.webContents.on('did-finish-load', () => {
+            SendWindowsResize(win);
+        })
     win.webContents.openDevTools();
+}
+//windows resize prog
+function SendWindowsResize(win) {
+    const { height } = win.getBounds();
+    let eq_height = height - 45;
+    let fs_height = height - 25;
+    const {width} = win.getBounds();
+    const isFullScreen = win.isFullScreen();
+    console.debug(eq_height);
+    console.info(isFullScreen);
+    win.webContents.send('window-resize', height, eq_height,fs_height,isFullScreen,width);
 }
 //run process.
 

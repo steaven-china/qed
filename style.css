@@ -34,7 +34,7 @@ body {
     font-family: DejaVu Sans Unicode,"JetBrains Mono",Segoe UI,Helvetica,Arial,sans-serif;
     padding: 0;
     margin: 0;
-    background-color: rgba(43, 45, 48, 0.75);
+    background-color: rgba(140, 204, 138, 0.75);
     overflow: hidden;
 }
 .input_area {
@@ -52,7 +52,8 @@ body {
     outline: none;
     position: absolute;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, border ease-in-out .1s,margin ease-in-out .1s;
-    color: cornsilk;
+    color: #757163;
+    z-index: 0;
 }
 .input_area:hover {
     border: 2px solid #ffcccc;
@@ -65,5 +66,24 @@ body {
     background-image: none;
 }
 .right_bar{
+    right: 0;
+    padding: 90% 0 0 32px;
+    height: 720px;
+    background-color: #a09c8a;
+    position: absolute;
+    z-index: 2;
 
+}
+.bottom_bar{
+    padding: 0 0 13px 768px;
+    background-color: #adc8c8;
+    z-index: 1;
+    position:fixed;
+    left:0;
+    bottom:0;
+    border-color:#9fd1fcc0;
+    border-width:2px;
+    border-style:solid;
+    box-shadow: 0 2px 10px rgba(209, 228, 246, 0.75);
+    width: 100%;
 }

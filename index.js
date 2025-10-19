@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ipcRenderer.on('window-resize', (event, height,eq_height,fs_height,isFullScreen) => {
         if (input_area) {
             console.debug(input_area);
-
             /**if (!isFullScreen) {
                 input_area["style"].height = `${eq_height}px`;
             }else if (isFullScreen) {
